@@ -1,0 +1,21 @@
+@import "src/styles/variables";
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $auth-bg-clr;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+mat-card {
+  width: 400px;
+  h4 {
+    text-align: center;
+  }
+}

@@ -1,0 +1,8 @@
+<h1>Panel<strong class="primary-clr">APP</strong></h1>
+<mat-card>
+  <h4 *ngIf="viewType === 'register'">Create account</h4>
+  <h4 *ngIf="viewType === 'login'">Sign in</h4>
+  <router-outlet (activate)="onViewActivate($event)"></router-outlet>
+</mat-card>
+<a mat-button routerLink="/auth/login" *ngIf="viewType === 'register'">Have an account? Sign in.</a>
+<a mat-button routerLink="/auth/register" *ngIf="viewType === 'login'">Don't have an account? Register here</a>

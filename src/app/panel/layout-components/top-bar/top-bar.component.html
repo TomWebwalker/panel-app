@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button aria-label="Menu" (click)="onSidebarToggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="app-title">Panel<strong>APP</strong></div>
+  <span *ngIf="(profile$ | async) as profile">{{ profile.name }}</span>
+</mat-toolbar>

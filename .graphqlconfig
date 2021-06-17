@@ -1,0 +1,15 @@
+{
+  "name": "GraphQL Schema",
+  "schemaPath": "graphql.schema.json",
+  "extensions": {
+    "endpoints": {
+      "Panel App Endpoint": {
+        "url": "http://localhost:3000/graphql",
+        "introspect": false,
+        "headers": {
+          "Cookie": "panel-api-access-token=TOKEN"
+        }
+      }
+    }
+  }
+}

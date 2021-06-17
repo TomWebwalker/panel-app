@@ -1,0 +1,11 @@
+fragment profile on User {
+  id
+  name
+  email
+}
+
+query profile {
+  profile {
+    ...profile
+  }
+}

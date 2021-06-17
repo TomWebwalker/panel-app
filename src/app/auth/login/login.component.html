@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password">
+    <mat-icon matSuffix>lock</mat-icon>
+  </mat-form-field>
+
+  <button
+    [disabled]="form.invalid"
+    mat-raised-button
+    color="primary"
+    type="submit">
+    Sign in
+  </button>
+
+</form>
+

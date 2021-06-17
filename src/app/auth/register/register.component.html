@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-icon matSuffix>perm_identity</mat-icon>
+    <mat-error *ngIf="getErrorByFieldName('name')">{{ getErrorByFieldName('name') }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email">
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="getErrorByFieldName('email')">{{ getErrorByFieldName('email') }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password">
+    <mat-error *ngIf="getErrorByFieldName('password')">{{ getErrorByFieldName('password') }}</mat-error>
+    <mat-icon matSuffix>lock</mat-icon>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="terms" color="primary">Accepted terms</mat-checkbox>
+
+  <button
+    [disabled]="form.invalid"
+    mat-raised-button
+    color="primary"
+    type="submit">
+    Create account
+  </button>
+
+</form>
+
