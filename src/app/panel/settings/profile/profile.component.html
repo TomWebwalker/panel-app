@@ -1,0 +1,6 @@
+<ng-container *ngIf="(profile$ | async) as profile">
+  <app-profile-view
+    [profile]="profile"
+    (profileUpdate)="onProfileUpdate($event)">
+  </app-profile-view>
+</ng-container>

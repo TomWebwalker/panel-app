@@ -3,5 +3,11 @@
 </app-top-bar>
 <mat-sidenav-container>
   <mat-sidenav mode="side" #sidenav>Side</mat-sidenav>
-  <mat-sidenav-content>Test</mat-sidenav-content>
+  <mat-sidenav-content>
+    <mat-toolbar class="mat-elevation-z2"><span class="primary-clr">{{ title$ | async }}</span></mat-toolbar>
+    <div class="main-container">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
 </mat-sidenav-container>

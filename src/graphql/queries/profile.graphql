@@ -2,6 +2,7 @@ fragment profile on User {
   id
   name
   email
+  imageUrl
 }
 
 query profile {

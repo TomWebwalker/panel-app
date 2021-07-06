@@ -7,7 +7,7 @@
         "url": "http://localhost:3000/graphql",
         "introspect": false,
         "headers": {
-          "Cookie": "panel-api-access-token=TOKEN"
+          "Cookie": "panel-api-access-token="
         }
       }
     }

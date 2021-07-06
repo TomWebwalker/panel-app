@@ -1,0 +1,14 @@
+<div class="container-with-sub-navigation">
+  <mat-nav-list dense>
+    <a mat-list-item [routerLink]="link.link" routerLinkActive="active-link" *ngFor="let link of links">
+      <mat-icon mat-list-icon>{{ link.icon }}</mat-icon>
+      {{ link.label }}
+    </a>
+  </mat-nav-list>
+  <div class="sub-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+

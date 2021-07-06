@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { LayoutService } from '../../services/layout.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-panel',
@@ -8,6 +10,11 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class PanelComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
+  title$: Observable<string>;
+
+  constructor(layoutService: LayoutService) {
+    this.title$ = layoutService.title$;
+  }
 
   onSidebarToggle(): void {
     this.sidenav.toggle();

@@ -8,3 +8,12 @@
 mat-sidenav-container {
   flex: 1;
 }
+
+.main-container {
+  padding: 16px;
+}
+
+mat-toolbar {
+  position: relative;
+  z-index: 1000;
+}

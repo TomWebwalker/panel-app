@@ -8,6 +8,13 @@ const routes: Routes = [
   {
     path: '',
     component: PanelComponent,
+    children: [
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./settings/settings.module').then((m) => m.SettingsModule),
+      },
+    ],
   },
 ];
 

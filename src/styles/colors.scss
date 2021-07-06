@@ -1,0 +1,9 @@
+@use '~@angular/material' as mat;
+
+.primary-clr {
+  color: mat.get-color-from-palette($panel-app-primary);
+}
+
+.mat-nav-list a.mat-list-item.active-link {
+  @extend .primary-clr;
+}

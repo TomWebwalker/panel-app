@@ -1,0 +1,10 @@
+.container-with-sub-navigation {
+  display: flex;
+  mat-nav-list {
+    min-width: 200px;
+    margin-right: 16px;
+  }
+  .sub-content {
+    flex: 1;
+  }
+}

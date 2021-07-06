@@ -16,6 +16,27 @@ export type Scalars = {
 
 
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  updateProfile: User;
+  updatePassword: User;
+};
+
+
+export type MutationUpdateProfileArgs = {
+  user: UserUpdateInput;
+};
+
+
+export type MutationUpdatePasswordArgs = {
+  passwords: PasswordUpdateInput;
+};
+
+export type PasswordUpdateInput = {
+  oldPassword: Scalars['String'];
+  newPassword: Scalars['String'];
+};
+
 export type Query = {
   __typename?: 'Query';
   users?: Maybe<Array<User>>;
@@ -27,13 +48,45 @@ export type User = {
   id: Scalars['Int'];
   name: Scalars['String'];
   email: Scalars['String'];
+  imageUrl?: Maybe<Scalars['String']>;
   createdAt: Scalars['String'];
   updatedAt: Scalars['String'];
 };
 
+export type UserUpdateInput = {
+  name: Scalars['String'];
+  imageUrl?: Maybe<Scalars['String']>;
+};
+
+export type UpdatePasswordMutationVariables = Exact<{
+  passwords: PasswordUpdateInput;
+}>;
+
+
+export type UpdatePasswordMutation = (
+  { __typename?: 'Mutation' }
+  & { updatePassword: (
+    { __typename?: 'User' }
+    & ProfileFragment
+  ) }
+);
+
+export type UpdateProfileMutationVariables = Exact<{
+  user: UserUpdateInput;
+}>;
+
+
+export type UpdateProfileMutation = (
+  { __typename?: 'Mutation' }
+  & { updateProfile: (
+    { __typename?: 'User' }
+    & ProfileFragment
+  ) }
+);
+
 export type ProfileFragment = (
   { __typename?: 'User' }
-  & Pick<User, 'id' | 'name' | 'email'>
+  & Pick<User, 'id' | 'name' | 'email' | 'imageUrl'>
 );
 
 export type ProfileQueryVariables = Exact<{ [key: string]: never; }>;
@@ -63,8 +116,45 @@ export const ProfileFragmentDoc = gql`
   id
   name
   email
+  imageUrl
 }
     `;
+export const UpdatePasswordDocument = gql`
+    mutation updatePassword($passwords: PasswordUpdateInput!) {
+  updatePassword(passwords: $passwords) {
+    ...profile
+  }
+}
+    ${ProfileFragmentDoc}`;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UpdatePasswordGQL extends Apollo.Mutation<UpdatePasswordMutation, UpdatePasswordMutationVariables> {
+    document = UpdatePasswordDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const UpdateProfileDocument = gql`
+    mutation updateProfile($user: UserUpdateInput!) {
+  updateProfile(user: $user) {
+    ...profile
+  }
+}
+    ${ProfileFragmentDoc}`;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UpdateProfileGQL extends Apollo.Mutation<UpdateProfileMutation, UpdateProfileMutationVariables> {
+    document = UpdateProfileDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const ProfileDocument = gql`
     query profile {
   profile {

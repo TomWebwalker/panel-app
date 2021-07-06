@@ -2,7 +2,8 @@ overwrite: true
 schema:
   - http://localhost:3000/graphql:
       headers:
-        Cookie: "panel-api-access-token=TOKEN"
+        Cookie: "panel-api-access-token="
+
 
 documents: "src/**/*.graphql"
 generates:
